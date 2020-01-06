@@ -13,4 +13,5 @@ def create_app(config_name):
     #Initializing Flask Extensions
     bootstrap.init_app(app)
 
+
     return app
