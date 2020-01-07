@@ -32,7 +32,7 @@ def articles(source_id, per_page):
     return render_template('articles.html', title = title, name = source_id, news = news_source)
 
 
-@main.route('/topheadlines&<int:per_page')
+@main.route('/topheadlines&<int:per_page>')
 def headlines(per_page):
     '''
     Function that return top headlines articles
@@ -43,7 +43,7 @@ def headlines(per_page):
     return render_template('topheadlines.html', title = 'Top Headlines', news = topheadlines_news)
 
 
-@main.route('/everything&<int:per_page')
+@main.route('/everything&<int:per_page>')
 def all_news(per_page):
     '''
     Function that returns top headlines articles
@@ -57,3 +57,18 @@ def all_news(per_page):
         return redirect(url_for('main.search', topic = search_articles))
     else:
         return render_template('everything.html', title = title, name = 'All News', news = everything_news)
+
+
+@main.route('/search/<topic>')
+def search(topic):
+    '''
+    Function that returns the results of search request
+    '''
+    limit = 40
+    search_name = topic.split(" ")
+    search_name_format = "+".join(search_name)
+    search_every = search_everything(limit, search_name_format)
+
+    title = '{search_name_format} Result'
+
+    return render_template('search.html, title=title, news=search_every')
