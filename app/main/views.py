@@ -30,3 +30,14 @@ def articles(source_id, per_page):
     title = f'{source_id} | All Articles'
 
     return render_template('articles.html', title = title, name = source_id, news = news_source)
+
+
+@main.route('/topheadlines&<int:per_page')
+def headlines(per_page):
+    '''
+    Function that return top headlines articles
+    '''
+    topheadlines_news = topheadlines(per_page)
+    title = 'Top Headlines'
+
+    return render_template('topheadlines.html', title = 'Top Headlines', news = topheadlines_news)
