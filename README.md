@@ -9,14 +9,17 @@ It is a Web Application where one can get the latest news updates according to t
 In your terminal:
 
   `$ git clone https://github.com/ian1017/news.git`
+
   `$ cd news`
 
 ## Running the Application
 Edit the start.sh file with your api key from the news.org website
+
 To run the application, in your terminal:
 
-  $ chmod a+x start.sh
-  $ ./start.sh
+  `$ chmod a+x start.sh`
+  
+  `$ ./start.sh`
 
 ## Testing the Application
 To run the tests for the class file:
